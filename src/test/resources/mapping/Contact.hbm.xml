@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
  
 <hibernate-mapping>
-    <class name="com.ignsabbag.hibernate.model.Contact" table="CONTACT">
+    <class name="org.easyquery.model.Contact" table="CONTACT">
         <id name="contactId" type="java.lang.Integer">
             <column name="CONTACT_ID" />
             <generator class="identity" />

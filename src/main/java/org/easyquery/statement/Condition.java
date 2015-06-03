@@ -1,4 +1,4 @@
-package com.ignsabbag.hibernate.statement;
+package org.easyquery.statement;
 
 /**
  * Created by nacho on 17/05/15.

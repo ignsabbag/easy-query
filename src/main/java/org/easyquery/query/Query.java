@@ -1,4 +1,4 @@
-package com.ignsabbag.hibernate.query;
+package org.easyquery.query;
 
 import org.hibernate.Session;
 

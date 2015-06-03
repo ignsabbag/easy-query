@@ -1,7 +1,7 @@
-package com.ignsabbag.hibernate.statement;
+package org.easyquery.statement;
 
-import com.ignsabbag.hibernate.query.Query;
-import com.ignsabbag.hibernate.query.SqlQuery;
+import org.easyquery.query.Query;
+import org.easyquery.query.SqlQuery;
 import org.hibernate.Session;
 
 import java.util.List;

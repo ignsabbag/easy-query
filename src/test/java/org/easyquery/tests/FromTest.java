@@ -1,6 +1,6 @@
-package com.ignsabbag.hibernate.tests;
+package org.easyquery.tests;
 
-import com.ignsabbag.hibernate.model.Contact;
+import org.easyquery.model.Contact;
 
 import java.util.List;
 

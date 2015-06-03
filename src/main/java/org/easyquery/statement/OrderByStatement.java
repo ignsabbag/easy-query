@@ -1,6 +1,6 @@
-package com.ignsabbag.hibernate.statement;
+package org.easyquery.statement;
 
-import com.ignsabbag.hibernate.query.Query;
+import org.easyquery.query.Query;
 
 /**
  * Created by nacho on 16/05/15.

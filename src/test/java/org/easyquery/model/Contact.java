@@ -1,4 +1,4 @@
-package com.ignsabbag.hibernate.model;
+package org.easyquery.model;
 
 import java.io.Serializable;
 

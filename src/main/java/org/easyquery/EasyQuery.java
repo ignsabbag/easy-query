@@ -1,6 +1,6 @@
-package com.ignsabbag.hibernate;
+package org.easyquery;
 
-import com.ignsabbag.hibernate.statement.FromStatement;
+import org.easyquery.statement.FromStatement;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 

@@ -1,4 +1,4 @@
-package com.ignsabbag.hibernate.util;
+package org.easyquery.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

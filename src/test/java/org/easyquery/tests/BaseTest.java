@@ -1,12 +1,12 @@
-package com.ignsabbag.hibernate.tests;
+package org.easyquery.tests;
 
-import com.ignsabbag.hibernate.EasyQuery;
-import com.ignsabbag.hibernate.util.HibernateUtil;
 import org.dbunit.DBTestCase;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
+import org.easyquery.EasyQuery;
+import org.easyquery.util.HibernateUtil;
 import org.hibernate.SessionFactory;
 
 import java.io.FileInputStream;
