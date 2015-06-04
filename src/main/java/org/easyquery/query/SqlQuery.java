@@ -143,17 +143,6 @@ public class SqlQuery<T> extends Query<T> {
     }
 
     @Override
-    public org.hibernate.Query getQuery() {
-        org.hibernate.Query query = session.createQuery(sql.toString());
-        int i = 0;
-        Iterator<Object> iterator = params.iterator();
-        while( iterator.hasNext() ) {
-            query.setParameter(i++, iterator.next());
-        }
-        return query;
-    }
-
-    @Override
     public String toString() {
         String str = sql.toString();
         for(Object param : params) {
@@ -168,6 +157,26 @@ public class SqlQuery<T> extends Query<T> {
             addParam(obj);
         }
         return this;
+    }
+
+    @Override
+    public List<T> list() {
+        return this.getQuery().list();
+    }
+
+    @Override
+    public T uniqueResult() {
+        return (T) this.getQuery().uniqueResult();
+    }
+
+    protected org.hibernate.Query getQuery() {
+        org.hibernate.Query query = session.createQuery(sql.toString());
+        int i = 0;
+        Iterator<Object> iterator = params.iterator();
+        while( iterator.hasNext() ) {
+            query.setParameter(i++, iterator.next());
+        }
+        return query;
     }
 
     protected void addParam(Object obj) {

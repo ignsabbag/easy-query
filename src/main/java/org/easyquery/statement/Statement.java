@@ -121,7 +121,7 @@ abstract class Statement<T> {
 
     public List<T> list() {
         try {
-            return this.query.getQuery().list();
+            return this.query.list();
         } catch (Exception e) {
             throw new QueryException(
                     "A exception was thrown running the following query: "
@@ -131,7 +131,7 @@ abstract class Statement<T> {
 
     public T uniqueResult() {
         try {
-            return (T) this.query.getQuery().uniqueResult();
+            return this.query.uniqueResult();
         } catch (Exception e) {
             throw new QueryException(
                     "A exception was thrown running the following query: "

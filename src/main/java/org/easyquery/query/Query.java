@@ -2,6 +2,8 @@ package org.easyquery.query;
 
 import org.hibernate.Session;
 
+import java.util.List;
+
 /**
  * Created by nacho on 17/05/15.
  */
@@ -53,9 +55,8 @@ public abstract class Query<T> {
 
     public abstract void between(Object param1, Object param2);
 
-    /**
-     * @return the Hibernate query to be executed
-     */
-    public abstract org.hibernate.Query getQuery();
+    public abstract List<T> list();
+
+    public abstract T uniqueResult();
 
 }
