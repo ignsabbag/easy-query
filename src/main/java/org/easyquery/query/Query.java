@@ -15,6 +15,10 @@ public abstract class Query<T> {
         this.clazz = clazz;
     }
 
+    public abstract void select(String[] params);
+
+    public abstract void selectDistinct(String[] params);
+
     public abstract void from(Class<T> clazz, String alias);
 
     public abstract void innerJoin(String expr, String alias);

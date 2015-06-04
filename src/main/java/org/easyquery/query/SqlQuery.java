@@ -25,8 +25,30 @@ public class SqlQuery<T> extends Query<T> {
     }
 
     @Override
+    public void select(String[] params) {
+        this.append("SELECT ");
+        for(int i = 0; i < params.length; i++) {
+            if(i > 0) {
+                this.append(", ");
+            }
+            this.append(params[i]);
+        }
+    }
+
+    @Override
+    public void selectDistinct(String[] params) {
+        this.append("SELECT DISTINCT");
+        for(int i = 0; i < params.length; i++) {
+            if(i > 0) {
+                this.append(", ");
+            }
+            this.append(params[i]);
+        }
+    }
+
+    @Override
     public void from(Class<T> clazz, String alias) {
-        this.append("FROM ").append(clazz.getName());
+        this.append(" FROM ").append(clazz.getName());
         if( alias != null )
             this.alias(alias);
     }

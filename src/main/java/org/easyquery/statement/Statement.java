@@ -2,6 +2,7 @@ package org.easyquery.statement;
 
 import org.easyquery.query.Query;
 import org.easyquery.query.SqlQuery;
+import org.hibernate.QueryException;
 import org.hibernate.Session;
 
 import java.util.List;
@@ -21,7 +22,17 @@ abstract class Statement<T> {
         this.query = new SqlQuery<T>(session, clazz);
     }
 
-    protected FromStatement<T> from(Class<T> clazz, String alias) {
+    protected SelectStatement<T> select(Class<T> clazz, String[] params) {
+        this.query.select(params);
+        return new SelectStatement<T>(this.query);
+    }
+
+    protected SelectStatement<T> selectDistinct(Class<T> clazz, String[] params) {
+        this.query.selectDistinct(params);
+        return new SelectStatement<T>(this.query);
+    }
+
+    protected FromStatement<T> from(Class clazz, String alias) {
         this.query.from(clazz, alias);
         return new FromStatement<T>(this.query);
     }
@@ -109,11 +120,23 @@ abstract class Statement<T> {
     }
 
     public List<T> list() {
-        return this.query.getQuery().list();
+        try {
+            return this.query.getQuery().list();
+        } catch (Exception e) {
+            throw new QueryException(
+                    "A exception was thrown running the following query: "
+                            + this.query.toString(), e);
+        }
     }
 
     public T uniqueResult() {
-        return (T) this.query.getQuery().uniqueResult();
+        try {
+            return (T) this.query.getQuery().uniqueResult();
+        } catch (Exception e) {
+            throw new QueryException(
+                    "A exception was thrown running the following query: "
+                            + this.query.toString(), e);
+        }
     }
 
 }

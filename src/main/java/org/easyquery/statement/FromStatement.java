@@ -12,11 +12,6 @@ import org.hibernate.Session;
         super(query);
     }
 
-    public FromStatement(Session session, Class<T> clazz) {
-        super(session, clazz);
-        super.from(clazz, null);
-    }
-
     public FromStatement(Session session, Class<T> clazz, String alias) {
         super(session, clazz);
         super.from(clazz, alias);

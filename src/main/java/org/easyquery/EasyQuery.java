@@ -1,6 +1,7 @@
 package org.easyquery;
 
 import org.easyquery.statement.FromStatement;
+import org.easyquery.statement.SelectStatement;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -19,6 +20,17 @@ public class EasyQuery {
 
     public EasyQuery(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
+    }
+
+    public SelectStatement<Object> select(String ... params) {
+        return new SelectStatement(getCurrentSession(), Object.class, params, Boolean.FALSE);
+    }
+
+    public SelectStatement selectDistinct(String ... params) {
+        if(params.length == 1)
+            return new SelectStatement(getCurrentSession(), Object.class, params, Boolean.TRUE);
+
+        return new SelectStatement(getCurrentSession(), Object[].class, params, Boolean.TRUE);
     }
 
     public <T> FromStatement<T> from(Class<T> clazz) {
