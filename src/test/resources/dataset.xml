@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <dataset>
-    <CONTACT CONTACT_ID="1" NAME="Nacho"/>
-    <CONTACT CONTACT_ID="2" NAME="Lu"/>
+    <teacher id="1" name="Nacho"/>
+    <teacher id="2" name="Lu"/>
+
+    <course id="1" name="Course 1" teacher="1" />
+    <course id="2" name="Course 2" teacher="2" />
+    <course id="3" name="Course 3" teacher="1" />
 </dataset>

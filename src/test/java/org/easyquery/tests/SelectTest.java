@@ -1,6 +1,6 @@
 package org.easyquery.tests;
 
-import org.easyquery.model.Contact;
+import org.easyquery.model.Teacher;
 
 import java.util.List;
 
@@ -14,19 +14,19 @@ public class SelectTest extends BaseTest {
     }
 
     public void testSelectList() {
-        List list = easyQuery.select("contact").from(Contact.class, "contact").list();
+        List list = easyQuery.select("contact").from(Teacher.class, "contact").list();
         assertEquals(2, list.size());
     }
 
     public void testSelectOneColumn() {
         String contactName = (String) easyQuery.select("name")
-                .from(Contact.class).where("contactId").equal(1).uniqueResult();
+                .from(Teacher.class).where("id").equal(1).uniqueResult();
         assertEquals("Nacho", contactName);
     }
 
     public void testSelectTwoColumns() {
-        Object[] result = (Object[]) easyQuery.select("contactId", "name")
-                .from(Contact.class).where("contactId").equal(1).uniqueResult();
+        Object[] result = (Object[]) easyQuery.select("id", "name")
+                .from(Teacher.class).where("id").equal(1).uniqueResult();
         assertEquals("Nacho", result[1]);
     }
 }

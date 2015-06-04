@@ -5,19 +5,16 @@ import java.io.Serializable;
 /**
  * Model class for Conact
  */
-public class Contact implements Serializable {
-	private Integer contactId;
+public class Teacher implements Serializable {
+	private Integer id;
 	private String name;
 
-	public Contact() {
+	public Integer getId() {
+		return id;
 	}
 
-	public Integer getContactId() {
-		return contactId;
-	}
-
-	public void setContactId(Integer contactId) {
-		this.contactId = contactId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {

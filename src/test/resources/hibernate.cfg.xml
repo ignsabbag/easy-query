@@ -20,7 +20,9 @@
 
         <!--create the database schema on startup if required -->
         <property name="hbm2ddl.auto">update</property>
-       <!-- <mapping class="entities.Subscriber"/> -->
-       <mapping resource="mapping/Contact.hbm.xml" />
+
+        <!-- <mapping class="entities.Subscriber"/> -->
+        <mapping resource="mapping/Teacher.hbm.xml" />
+        <mapping resource="mapping/Course.hbm.xml" />
   </session-factory>
 </hibernate-configuration>
