@@ -20,6 +20,13 @@ public class SqlQuery<T> extends Query<T> {
         this.params = new ArrayList<Object>();
     }
 
+    @Override
+    public <K> Query<K> changeClass(Class<K> clazz) {
+        SqlQuery<K> newQuery = new SqlQuery(this.session, clazz);
+        newQuery.sql = this.sql;
+        return newQuery;
+    }
+
     public  void alias(String expr) {
         this.append(" AS ").append(expr);
     }

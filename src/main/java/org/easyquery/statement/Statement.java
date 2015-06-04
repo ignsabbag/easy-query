@@ -24,59 +24,59 @@ abstract class Statement<T> {
 
     protected SelectStatement<T> select(Class<T> clazz, String[] params) {
         this.query.select(params);
-        return new SelectStatement<T>(this.query);
+        return new SelectStatement(this.query);
     }
 
     protected SelectStatement<T> selectDistinct(Class<T> clazz, String[] params) {
         this.query.selectDistinct(params);
-        return new SelectStatement<T>(this.query);
+        return new SelectStatement(this.query);
     }
 
     protected FromStatement<T> from(Class clazz, String alias) {
         this.query.from(clazz, alias);
-        return new FromStatement<T>(this.query);
+        return new FromStatement(this.query);
     }
 
-    protected FromStatement<T> innerJoin(String expr, String alias) {
+    protected FromStatement<Object[]> innerJoin(String expr, String alias) {
         this.query.innerJoin(expr, alias);
-        return new FromStatement<T>(this.query);
+        return new FromStatement(this.query.changeClass(Object[].class));
     }
 
     protected Condition<WhereStatement<T>, T> where(String expr) {
         this.query.where(expr);
-        WhereStatement<T> where = new WhereStatement<T>(this.query);
-        return new Condition<WhereStatement<T>, T>(where);
+        WhereStatement<T> where = new WhereStatement(this.query);
+        return new Condition(where);
     }
 
     protected <Q extends Statement<T>> Condition<Q, T> and(String expr) {
         this.query.and(expr);
-        return new Condition<Q, T>((Q) this);
+        return new Condition((Q) this);
     }
 
     protected GroupByStatement<T> groupBy(String[] params) {
         this.query.groupBy(params);
-        return new GroupByStatement<T>(this.query);
+        return new GroupByStatement(this.query);
     }
 
     protected Condition<HavingStatement<T>, T> having(String expr) {
         this.query.having(expr);
-        HavingStatement<T> having = new HavingStatement<T>(this.query);
-        return new Condition<HavingStatement<T>, T>(having);
+        HavingStatement<T> having = new HavingStatement(this.query);
+        return new Condition(having);
     }
 
     protected OrderByStatement<T> orderBy(String[] params) {
         this.query.orderBy(params);
-        return new OrderByStatement<T>(this.query);
+        return new OrderByStatement(this.query);
     }
 
     protected FinalStatement<T> asc() {
         this.query.asc();
-        return new FinalStatement<T>(this.query);
+        return new FinalStatement(this.query);
     }
 
     protected FinalStatement<T> desc() {
         this.query.desc();
-        return new FinalStatement<T>(this.query);
+        return new FinalStatement(this.query);
     }
 
     protected <Q extends Statement<T>> Q equal(Object param) {

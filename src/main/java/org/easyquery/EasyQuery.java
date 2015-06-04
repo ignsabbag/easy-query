@@ -26,11 +26,8 @@ public class EasyQuery {
         return new SelectStatement(getCurrentSession(), Object.class, params, Boolean.FALSE);
     }
 
-    public SelectStatement selectDistinct(String ... params) {
-        if(params.length == 1)
-            return new SelectStatement(getCurrentSession(), Object.class, params, Boolean.TRUE);
-
-        return new SelectStatement(getCurrentSession(), Object[].class, params, Boolean.TRUE);
+    public SelectStatement<Object> selectDistinct(String ... params) {
+        return new SelectStatement(getCurrentSession(), Object.class, params, Boolean.TRUE);
     }
 
     public <T> FromStatement<T> from(Class<T> clazz) {

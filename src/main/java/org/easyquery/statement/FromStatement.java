@@ -17,12 +17,12 @@ import org.hibernate.Session;
         super.from(clazz, alias);
     }
 
-    public FromStatement<T> innerJoin(String expr) {
+    public FromStatement<Object[]> innerJoin(String expr) {
         return this.innerJoin(expr, null);
     }
 
     @Override
-    public FromStatement<T> innerJoin(String expr, String alias) {
+    public FromStatement<Object[]> innerJoin(String expr, String alias) {
         return super.innerJoin(expr, alias);
     }
 
