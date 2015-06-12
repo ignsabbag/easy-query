@@ -19,9 +19,9 @@ public class SelectTest extends BaseTest {
     }
 
     public void testSelectOneColumn() {
-        String contactName = (String) easyQuery.select("name")
+        String teacherName = (String) easyQuery.select("name")
                 .from(Teacher.class).where("id").equal(1).uniqueResult();
-        assertEquals("Nacho", contactName);
+        assertEquals("Nacho", teacherName);
     }
 
     public void testSelectTwoColumns() {
